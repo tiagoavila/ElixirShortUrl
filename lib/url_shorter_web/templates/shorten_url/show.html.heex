@@ -1,0 +1,18 @@
+<h1>Show Shorten url</h1>
+
+<ul>
+
+  <li>
+    <strong>Original url:</strong>
+    <%= @shorten_url.original_url %>
+  </li>
+
+  <li>
+    <strong>Shorten url:</strong>
+    <%= @shorten_url.shorten_url %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.shorten_url_path(@conn, :edit, @shorten_url) %></span> |
+<span><%= link "Back", to: Routes.shorten_url_path(@conn, :index) %></span>

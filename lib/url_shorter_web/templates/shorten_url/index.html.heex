@@ -1,0 +1,28 @@
+<h1>Listing Shorten urls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Original url</th>
+      <th>Shorten url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for shorten_url <- @shorten_urls do %>
+    <tr>
+      <td><%= shorten_url.original_url %></td>
+      <td><%= shorten_url.shorten_url %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.shorten_url_path(@conn, :show, shorten_url) %></span>
+        <span><%= link "Edit", to: Routes.shorten_url_path(@conn, :edit, shorten_url) %></span>
+        <span><%= link "Delete", to: Routes.shorten_url_path(@conn, :delete, shorten_url), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Shorten url", to: Routes.shorten_url_path(@conn, :new) %></span>

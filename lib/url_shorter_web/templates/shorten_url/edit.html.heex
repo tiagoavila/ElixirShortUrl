@@ -1,0 +1,5 @@
+<h1>Edit Shorten url</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.shorten_url_path(@conn, :update, @shorten_url)) %>
+
+<span><%= link "Back", to: Routes.shorten_url_path(@conn, :index) %></span>
