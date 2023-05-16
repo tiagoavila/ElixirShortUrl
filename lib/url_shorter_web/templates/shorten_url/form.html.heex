@@ -5,15 +5,15 @@
     </div>
   <% end %>
 
-  <%= label f, :original_url %>
+  <%= label f, "URL" %>
   <%= text_input f, :original_url %>
   <%= error_tag f, :original_url %>
 
-  <%= label f, :shorten_url %>
+  <%!-- <%= label f, :shorten_url %>
   <%= text_input f, :shorten_url %>
-  <%= error_tag f, :shorten_url %>
+  <%= error_tag f, :shorten_url %> --%>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Generate" %>
   </div>
 </.form>
