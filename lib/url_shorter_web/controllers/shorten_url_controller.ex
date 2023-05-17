@@ -15,12 +15,7 @@ defmodule UrlShorterWeb.ShortenUrlController do
   end
 
   def create(conn, %{"shorten_url" => shorten_url_params}) do
-    new_shorten_url = :crypto.hash(:sha, shorten_url_params["original_url"])
-    |> Base.encode16
-    |> String.slice(0..10)
-    |> String.downcase
 
-    shorten_url_params = shorten_url_params |> Map.put("shorten_url", new_shorten_url)
 
     case UrlShortenerContext.create_shorten_url(shorten_url_params) do
       {:ok, shorten_url} ->
