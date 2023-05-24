@@ -15,8 +15,6 @@ defmodule UrlShorterWeb.ShortenUrlController do
   end
 
   def create(conn, %{"shorten_url" => shorten_url_params}) do
-
-
     case UrlShortenerContext.create_shorten_url(shorten_url_params) do
       {:ok, shorten_url} ->
         conn

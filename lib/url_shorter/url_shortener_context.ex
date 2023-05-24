@@ -21,6 +21,12 @@ defmodule UrlShorter.UrlShortenerContext do
     Repo.all(ShortenUrl)
   end
 
+  def list_urls do
+    query = from su in ShortenUrl, select: su.original_url
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single shorten_url.
 

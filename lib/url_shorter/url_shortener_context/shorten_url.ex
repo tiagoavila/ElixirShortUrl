@@ -28,6 +28,11 @@ defmodule UrlShorter.UrlShortenerContext.ShortenUrl do
     end)
   end
 
+  @spec check_url_already_has_short_url(Ecto.Changeset.t()) :: Ecto.Changeset.t()
+  defp check_url_already_has_short_url(changeset) do
+
+  end
+
   @spec generate_short_url(Ecto.Changeset.t()) :: Ecto.Changeset.t()
   defp generate_short_url(changeset) do
     generate_short_url(changeset, get_field(changeset, :original_url))

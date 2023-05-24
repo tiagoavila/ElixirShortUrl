@@ -15,7 +15,8 @@ defmodule UrlShorter.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: UrlShorter.PubSub},
       # Start the Endpoint (http/https)
-      UrlShorterWeb.Endpoint
+      UrlShorterWeb.Endpoint,
+      UrlShorter.UrlShorterBloomFilter
       # Start a worker by calling: UrlShorter.Worker.start_link(arg)
       # {UrlShorter.Worker, arg}
     ]

@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :url_shorter, UrlShorter.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "123456",
   hostname: "localhost",
   database: "url_shorter_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
