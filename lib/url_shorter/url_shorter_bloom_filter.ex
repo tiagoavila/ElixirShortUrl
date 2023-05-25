@@ -6,7 +6,7 @@ defmodule UrlShorter.UrlShorterBloomFilter do
   # Server Callbacks
 
   def start_link(bloom_filter \\ []) do
-    IO.inspect("BLOOM FILTER GENSERVER STARTED...", label: "**** INFO: ")
+    IO.puts ("**** BLOOM FILTER GENSERVER STARTED... ****")
 
     GenServer.start_link(__MODULE__, bloom_filter, name: __MODULE__)
   end
@@ -17,7 +17,8 @@ defmodule UrlShorter.UrlShorterBloomFilter do
   def init(_state) do
     bloom_filter = UrlShortenerContext.list_urls()
     |> Enum.reduce(Bloomex.scalable(1000, 0.1, 0.1, 2, &Murmur.hash_x86_128/1), fn url, bf -> Bloomex.add(bf, url) end)
-    |> IO.inspect(label: "**** INFO: ")
+
+    IO.puts("**** BLOOM FILTER INITIALIZED ****")
 
     {:ok, bloom_filter}
   end
@@ -27,6 +28,8 @@ defmodule UrlShorter.UrlShorterBloomFilter do
   end
 
   def handle_cast({:add_url, url}, bloom_filter) do
+    IO.puts("#{url} ADDED TO BLOOM FILTER")
+
     {:noreply, Bloomex.add(bloom_filter, url)}
   end
 
