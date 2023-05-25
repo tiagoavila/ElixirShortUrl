@@ -59,7 +59,6 @@ defmodule UrlShorter.UrlShortenerContext.ShortenUrl do
     |> Base.encode16
     |> String.slice(0..10)
     |> String.downcase
-    |> then(fn shorten_url -> shorten_url end)
 
     new_shorten_url = Application.fetch_env!(:url_shorter, :base_url_for_shorter) <> new_shorten_url_id
 
