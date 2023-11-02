@@ -11,6 +11,8 @@ defmodule UrlShorter.Release do
     for repo <- repos() do
       {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :up, all: true))
     end
+
+    IO.puts("Migrations successful.")
   end
 
   def rollback(repo, version) do
@@ -23,6 +25,7 @@ defmodule UrlShorter.Release do
   end
 
   defp load_app do
+    IO.puts("Loading app...")
     Application.load(@app)
   end
 end
