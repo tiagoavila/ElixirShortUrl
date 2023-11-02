@@ -32,3 +32,7 @@ url_shorter-*.tar
 npm-debug.log
 /assets/node_modules/
 
+config/prod.exs
+config/prod.exs
+config/prod.secret.exs
+rel
